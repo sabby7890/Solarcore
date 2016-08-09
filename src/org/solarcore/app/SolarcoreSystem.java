@@ -140,16 +140,15 @@ class SolarcoreSystem {
         long result = 0;
         for (int i = 0; i < Long.SIZE / 8; i++) {
             result <<= Long.SIZE / 8;
-            result |= (b[i] & 0xFF);
         }
         return result;
     }
 
-    static long min(long a, long b) {
+    public static long min(long a, long b) {
         return (a <= b) ? a : b;
     }
 
-    static int min(int a, int b) {
+    public static int min(int a, int b) {
         return (a <= b) ? a : b;
     }
 
