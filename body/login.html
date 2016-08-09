@@ -1,0 +1,26 @@
+{include header.html}
+
+<div class="vertical">
+	<div class="middle">
+		<div id="login" class="transparent">
+			<img id="login_logo" src="/static/img/logo_black.png" />
+			<form method="post" action="/login" id="login_form">
+				<div class="inputholder">
+					<input type="text" id="sc_login_field" name="sc_login" placeholder="Login" />
+				</div>
+				
+				<div class="inputholder">
+					<input type="password" id="sc_password_field" name="sc_password" placeholder="Password" />
+				</div>
+				
+				<div class="inputholder noframe">
+					<button id="sc_login_button" class="solarcore_button">Login</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="copyright">
+	&copy; 2016 Tomasz Sałaciński. All rights reserved.
+</div>
+{include footer.html}

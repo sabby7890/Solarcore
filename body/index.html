@@ -1,0 +1,139 @@
+{include header.html}
+<div id="panel">
+	<img id="logo" class="noselect" src="/static/img/logo_white.png" />
+	<a class="active noselect" href="/">Dashboard</a>
+	<a class="noselect" href="/folders">Folder view</a>
+	<a class="noselect" href="/reports">Reports</a>
+	<a class="noselect" href="/history">History</a>
+	<a class="noselect" href="/configuration">Configuration</a>
+	<a class="bottom noselect" href="/logout">Logout</a>
+</div>
+<div id="content">
+<div id="contentheader">
+	<div class="controls">
+		<div class="control-button">
+			<button class="solarcore_button" id="add_target_button">Add target</button>
+		</div>
+		
+		<div class="control-button">
+			<button class="solarcore_button fullscreen_button">Fullscreen</button>
+		</div>
+	</div>
+	
+	<div class="header">
+		<h1>Dashboard</h1>
+		<p>Manage services</p>
+	</div>
+</div>
+	<div id="fullscreen_controls">
+		<div class="vtable floatleft">
+			<div class="vmiddle">
+				<img id="dashboard_logo" src="/static/img/logo_black.png" />
+			</div>
+		</div>
+		
+		<div class="vtable floatright">
+			<div class="vmiddle">
+				<button class="solarcore_button fullscreen_button" href="#">Leave fullscreen</button>
+			</div>
+		</div>
+		
+		
+	</div>
+	<div class="content nomargin">
+		
+		<div id="dashboard">
+		
+		</div>
+	</div>
+	
+
+
+</div>
+
+<div id="target_modal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Add target</h4>
+			</div>
+			<div class="modal-body">
+				<ul class="nav nav-tabs">
+					<li role="presentation" class="active"><a data-toggle="tab" href="#newtarget_general">General</a></li>
+					<li role="presentation"><a data-toggle="tab" href="#newtarget_probes">Probes</a></li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="newtarget_general">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+									<p>Name:</p>
+									<div class="inputholder"><input type="text" name="targetname" value=""/></div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+									<p>Folder:</p>
+									<select id="add_target_folder">
+									</select> 							
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+									<p>Description (optional):</p>
+									<div class="inputholder"><input type="text" name="targetname" value=""/></div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+									<p>Location (optional):</p>
+									<div class="inputholder"><input type="text" name="targetname" value=""/></div>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+									<p>Address:</p>
+									<div class="inputholder"><input type="text" name="targetname" value=""/></div>
+								</div>
+							</div>
+							
+						</div>
+						
+					</div>
+		
+					<div class="tab-pane" id="newtarget_probes">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+									<select>
+										<option value="ping">Ping</option>
+										<option value="tcp">TCP</option>
+										<option value="snmp">SNMP</option>
+										<option value="http">HTTP</option>
+										<option value="http">SQL</option>
+										<option value="solarcore">Solarcore probe</option>
+									</select>			
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+									<button type="button" style="display: inline;" class="solarcore_button small">+</button>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="solarcore_button small" data-dismiss="modal">Save</button>
+				<button type="button" class="solarcore_button small" data-dismiss="modal">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="contextmenu" id="target_context_menu">
+	<a href="#">Remove</a>
+	<a href="#">Pause</a>
+	<hr/>
+	<a href="#" data-toggle="modal" data-target="#target_modal">Properties...</a>
+</div>
+{include footer.html}

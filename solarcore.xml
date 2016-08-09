@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<solarcore>
+    <target id="myhost">
+        <name>Lux Perpetua</name>
+        <description>Dupa</description>
+        <address>luxperpetua.net</address>
+        <location>W domu</location>
+        <parentFolder>dupa1</parentFolder>
+        <custom>
+            <name>Z dupy parametr</name>
+            <value>20</value>
+        </custom>
+        <probe id="probe1">
+            <type>ping</type>
+            <checkinterval>1</checkinterval>
+            <maxchecks>3</maxchecks>
+        </probe>
+    </target>
+    <user id="1">
+        <username>tommy</username>
+        <password>c70b5dd9ebfb6f51d09d4132b7170c9d20750a7852f00680f65658f0310e810056e6763c34c9a00b0e940076f54495c169fc2302cceb312039271c43469507dc</password>
+        <userlevel>0</userlevel>
+        <firstname>Tomasz</firstname>
+        <lastname>Sałaciński</lastname>
+        <email>tommy@luxperpetua.net</email>
+        <parentFolder>2</parentFolder>
+        <phone>500</phone>
+        <location>500</location>
+    </user>
+    <folder id="1">
+        <name>Root</name>
+        <description/>
+        <parentFolder>0</parentFolder>
+    </folder>
+    <folder id="2">
+        <name>Users</name>
+        <description>Dupny folder z userami</description>
+        <parentFolder>0</parentFolder>
+    </folder>
+    <folder id="dupa1">
+        <name>Root</name>
+        <description/>
+        <parentFolder>1</parentFolder>
+    </folder>
+    <folder id="dupa2">
+        <name>Root</name>
+        <description/>
+        <parentFolder>1</parentFolder>
+    </folder>
+    <folder id="dupa3">
+        <name>Root</name>
+        <description/>
+        <parentFolder>1</parentFolder>
+    </folder>
+    <folder id="dupa4">
+        <name>Root</name>
+        <description/>
+        <parentFolder>dupa1</parentFolder>
+    </folder>
+    <contact id="tsalacinski">
+        <alias>salata</alias>
+        <firstname>Tomasz</firstname>
+        <lastname>Sałaciński</lastname>
+        <email>tommy@luxperpetua.net</email>
+        <phone>600488780</phone>
+        <location>adresik</location>
+        <parentFolder>2</parentFolder>
+    </contact>
+    <config>
+        <loglevel>5</loglevel>
+        <systemname>Zażółć gęślą jaźń</systemname>
+        <http enabled="true">
+            <address>0.0.0.0</address>
+            <port>9011</port>
+        </http>
+        <admin>
+            <firstname>Tomasz</firstname>
+            <lastname>Sałaciński</lastname>
+            <email>tsalacinski@gmail.com</email>
+            <phone>+48 600 488 780</phone>
+			<password>c70b5dd9ebfb6f51d09d4132b7170c9d20750a7852f00680f65658f0310e810056e6763c34c9a00b0e940076f54495c169fc2302cceb312039271c43469507dc</password>
+
+        </admin>
+        <email>
+            <server>luxperpetua.net2</server>
+            <port>252</port>
+            <username>solarcore@luxperpetua.net2</username>
+            <password>solarcore1232</password>
+            <authrequired>true</authrequired>
+            <starttls>false</starttls>
+            <senderemail>solarcore@luxperpetua.net2</senderemail>
+            <sendername>Solarcore daemon2</sendername>
+        </email>
+    </config>
+</solarcore>

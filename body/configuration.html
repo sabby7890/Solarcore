@@ -1,0 +1,146 @@
+{include header.html}
+<div id="panel">
+	<img id="logo" src="/static/img/logo_white.png" />
+	<a id="dashboard_menu" href="/">Dashboard</a>
+	<a href="/folders">Folder view</a>
+	<a href="/reports">Reports</a>
+	<a href="/history">History</a>
+	<a class="active" href="/configuration">Configuration</a>
+	<a class="bottom" href="/logout">Logout</a>
+</div>
+<div id="content">
+<div id="contentheader">
+	<div class="controls">
+		<div class="control-button">
+			<button id="save_configuration" class="solarcore_button mleft"><img class="loading" src="/static/img/button-loader.gif" />Save</button>
+		</div>
+	</div>
+	<div class="header">
+		<h1>Configuration</h1>
+		<p>Configure Solarcore monitoring system</p>
+	</div>
+	
+	
+</div>
+
+<div class="content">	<div class="row">
+				<ul class="nav nav-tabs">
+					<li role="presentation" class="active"><a data-toggle="tab" href="#generaltab">General</a></li>
+					<li role="presentation"><a data-toggle="tab" href="#admintab">Administrator</a></li>
+					<li role="presentation"><a data-toggle="tab" href="#emailtab">Email</a></li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="generaltab">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-lg-4 col-md-6 col-sm-12">
+									<div>
+										<h3>System</h3>
+										<p>System name:</p>
+										<div class="inputholder"><input type="text" id="systemname" value="{input_systemname}"/></div>
+									</div>
+								</div>
+								
+								<div class="col-lg-4 col-md-6 col-sm-12">
+									<div>
+										<h3>Web server</h3>
+										<p>Bind address (requires restart):</p>
+										<div class="inputholder"><input type="text" id="httpbindaddress" value="{input_httpbindaddress}"/></div>
+										<p>Port (requires restart):</p>
+										<div class="inputholder"><input type="text" id="httpbindport" value="{input_httpbindport}"/></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="tab-pane" id="admintab">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-lg-4 col-md-6 col-sm-12">
+									<h3>Administrator</h3>
+									<p>First name:</p>
+									<div class="inputholder"><input type="text" id="adminfirstname" value="{input_adminfirstname}"/></div>
+									<p>Last name:</p>
+									<div class="inputholder"><input type="text" id="adminlastname" value="{input_adminlastname}"/></div>
+									<p>Email address:</p>
+									<div class="inputholder"><input type="text" id="adminemail" value="{input_adminemail}"/></div>
+									<p>Phone number:</p>
+									<div class="inputholder"><input type="text" id="adminphonenumber" value="{input_adminphonenumber}"/></div>
+									<button id="change_admin_password" class="solarcore_button">Change password</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="tab-pane" id="emailtab">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-lg-4 col-md-6 col-sm-12">
+									<h3>Email</h3>
+									<p>Server:</p>
+									<div class="inputholder"><input type="text" id="emailserver" value="{input_emailserver}"/></div>
+									<p>Port:</p>
+									<div class="inputholder"><input type="text" id="emailport" value="{input_emailport}"/></div>
+									<p>Authentication required:</p>
+									<select id="emailauthrequired">
+										<option {input_auth_req_yes}value="auth_required_yes">Yes</option>
+										<option {input_auth_req_no}value="auth_required_no">No</option>
+									</select>
+									
+									<p>Username:</p>
+									<div class="inputholder"><input type="text" id="emailusername" value="{input_emailusername}"/></div>
+									<p>Password:</p>
+									<div class="inputholder"><input type="text" id="emailuserpass" value="{input_emailuserpass}"/></div>
+									
+									<p>StartTLS enabled:</p>
+									<select id="emailstarttls">
+										<option {input_starttls_yes}value="starttls_yes">Yes</option>
+										<option {input_starttls_no}value="starttls_no">No</option>
+									</select>
+									
+									<p>Sender's email address:</p>
+									<div class="inputholder"><input type="text" id="emailsender" value="{input_emailsender}"/></div>
+									<p>Sender's name:</p>
+									<div class="inputholder"><input type="text" id="emailsendername" value="{input_emailsendername}"/></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+
+			
+		</div>
+		
+	</div>
+</div>
+</div>
+
+
+<div id="changepass_modal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Change admin password</h4>
+			</div>
+			<div class="modal-body">
+				<p>Enter password:</p>
+				<div class="inputholder"><input type="password" id="adminpassinput" value=""/></div>
+				
+				<p>Repeat password:</p>
+				<div class="inputholder"><input type="password" id="adminpassinputrepeat" value=""/></div>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="solarcore_button small" data-dismiss="modal">Save</button>
+				<button type="button" class="solarcore_button small" data-dismiss="modal">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+{include footer.html}
