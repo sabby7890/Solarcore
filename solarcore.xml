@@ -27,8 +27,8 @@
         <phone>500</phone>
         <location>500</location>
     </user>
-    <folder id="1">
-        <name>Mail folder</name>
+    <folder id="1" enabled="false">
+        <name>Main folder</name>
         <description/>
         <parentFolder>0</parentFolder>
     </folder>
