@@ -1,11 +1,24 @@
 package org.solarcore.app;
 
+/*
+ This file is part of the Solarcore project (https://github.com/sabby7890/Solarcore).
+
+ Solarcore is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ Solarcore is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with Solarcore.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 abstract class Notification  {
     String recipent;
-    private String serviceLogin;
-    private String servicePassword;
-    private String serviceAddress;
-    private String serviceSender;
     String message;
     String subject;
     SolarcoreConfig config;
@@ -22,23 +35,6 @@ abstract class Notification  {
 
     void setRecipent(String pRecipent) {
         recipent = pRecipent;
-    }
-
-    void setServiceCredentials(String pLogin, String pPassword) {
-        serviceLogin = pLogin;
-        servicePassword = pPassword;
-    }
-
-    void setServiceAddress(String pAddress) {
-        serviceAddress = pAddress;
-    }
-
-    void setServiceSender(String pSender) {
-        serviceSender = pSender;
-    }
-
-    public boolean send() {
-        return true;
     }
 
     public void setMessage(String pMessage) {

@@ -1,19 +1,25 @@
 package org.solarcore.app;
 
+/*
+ This file is part of the Solarcore project (https://github.com/sabby7890/Solarcore).
+
+ Solarcore is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ Solarcore is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with Solarcore.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-import java.io.StringWriter;
 
 class DefinedUser extends Defined {
     private String username;
@@ -94,39 +100,19 @@ class DefinedUser extends Defined {
         return userElement;
     }
 
-    public String getUsername() {
+    String getUsername() {
         return username;
     }
 
-    public String getPassword() {
+    String getPassword() {
         return password;
     }
 
-    public String getUserlevel() {
-        return userlevel;
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public String getEmail() {
+    String getEmail() {
         return email;
     }
 
-    public String getLocation() {
-        return location;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public String getDescription() {
+    String getDescription() {
         return description;
     }
 }

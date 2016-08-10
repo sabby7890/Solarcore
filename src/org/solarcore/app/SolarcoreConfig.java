@@ -1,5 +1,22 @@
 package org.solarcore.app;
 
+/*
+ This file is part of the Solarcore project (https://github.com/sabby7890/Solarcore).
+
+ Solarcore is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ Solarcore is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with Solarcore.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -10,7 +27,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.*;
-import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -66,7 +82,7 @@ class SolarcoreConfig {
         log.info("Administrator: " + adminFirstName + " " + adminLastName + " <" + adminEmail + ">");
     }
 
-    public void updateFolder(HashMap<String, String> params) {
+    void updateFolder(HashMap<String, String> params) {
         DefinedFolder f = folders.get(params.get("objectid"));
         String folderName = params.get("name");
         String folderDescription = params.get("description");
@@ -244,12 +260,12 @@ class SolarcoreConfig {
         SolarcoreSystem.addXMLEntry(doc, emailElement, "username", emailLoginUsername);
         SolarcoreSystem.addXMLEntry(doc, emailElement, "password", emailPassword);
 
-        if (emailAuthRequired == true) {
+        if (emailAuthRequired) {
             SolarcoreSystem.addXMLEntry(doc, emailElement, "authrequired", "true");
         } else {
             SolarcoreSystem.addXMLEntry(doc, emailElement, "authrequired", "false");
         }
-        if (emailStartTLS == true) {
+        if (emailStartTLS) {
             SolarcoreSystem.addXMLEntry(doc, emailElement, "starttls", "true");
         } else {
             SolarcoreSystem.addXMLEntry(doc, emailElement, "starttls", "false");
@@ -301,8 +317,6 @@ class SolarcoreConfig {
 
     private void parseEmailSection(Node node) {
         if (node.getNodeType() != Node.ELEMENT_NODE) return;
-
-        Element e = (Element) node;
 
         NodeList childNodes = node.getChildNodes();
 
@@ -482,8 +496,6 @@ class SolarcoreConfig {
         return httpEnabled;
     }
 
-    void setHttpEnabled(String pHttpEnabled) { httpEnabled = pHttpEnabled; }
-
     String getSystemname() { return systemname; }
 
     void setSystemname(String pSystemname) { systemname = pSystemname; }
@@ -507,8 +519,6 @@ class SolarcoreConfig {
     String getLoglevel() {
         return loglevel;
     }
-
-    void setLoglevel(String pLogLevel) { loglevel = pLogLevel; }
 
     boolean getEmailStartTLS() {
         return emailStartTLS;
