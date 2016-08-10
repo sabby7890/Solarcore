@@ -136,15 +136,21 @@ $(function() {
 	});
 	
 	$("#folder_save_button").click(function() {
+	    var pId = $("#folder_edit").attr("data-id");
+        var pName = $("#folder_edit .name").val().replace("+", "[SOLARCORE_PLUS]");
+	    var pDescription = $("#folder_edit .description").val().replace("+", "[SOLARCORE_PLUS]");
+
+        if (pDescription.length == 0) pDescription = "[UNSET]";
+
 		$.post("/api/objectsave", {
 		    objecttype: "folder",
-		    objectid: $("#folder_edit").attr("data-id"),
-			name: $("#folder_edit .name").val().replace("+", "[SOLARCORE_PLUS]"),
-			description: $("#folder_edit .description").val().replace("+", "[SOLARCORE_PLUS]"),
+		    objectid: pId,
+			name: pName,
+			description: pDescription
+        }, function() {
+            $("#folderlist").html("");
+           	buildFolderList();
         });
-
-	    $("#folderlist").html("");
-   		buildFolderList();
 	});
 	
 	$("#save_configuration").click(function() {

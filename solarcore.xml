@@ -28,8 +28,8 @@
         <location>500</location>
     </user>
     <folder id="1">
-        <name>Main+folder</name>
-        <description>My+description+%3A)</description>
+        <name>Mail folder</name>
+        <description/>
         <parentFolder>0</parentFolder>
     </folder>
     <folder id="2">
@@ -38,7 +38,7 @@
         <parentFolder>0</parentFolder>
     </folder>
     <folder id="dupa1">
-        <name>Root</name>
+        <name>Roots</name>
         <description/>
         <parentFolder>1</parentFolder>
     </folder>
@@ -54,7 +54,7 @@
     </folder>
     <folder id="dupa4">
         <name>Root</name>
-        <description/>
+        <description>sd</description>
         <parentFolder>dupa1</parentFolder>
     </folder>
     <contact id="tsalacinski">

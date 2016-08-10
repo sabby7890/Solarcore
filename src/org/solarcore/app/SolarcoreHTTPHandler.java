@@ -36,7 +36,6 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.*;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,6 +43,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static org.solarcore.app.SolarcoreSystem.decodeUrlParameter;
 
 class SolarcoreHTTPHandler implements HttpHandler {
     private SolarcoreConfig config;
@@ -356,18 +357,6 @@ class SolarcoreHTTPHandler implements HttpHandler {
         } catch (IOException e) {
             log.error(String.format("HTTP: unable to write to client: %s", e.getMessage()));
         }
-    }
-
-    private String decodeUrlParameter(String url) {
-        String out;
-        try {
-            out = new URI(url).getPath().replace("+", " ").replace("[SOLARCORE_PLUS]", "+");
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-            return url;
-        }
-
-        return out;
     }
 
     private byte[] objectsave(HashMap<String, String> params) {

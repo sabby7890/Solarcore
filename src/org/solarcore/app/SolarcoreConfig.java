@@ -33,6 +33,7 @@ import java.nio.file.Files;
 import java.util.HashMap;
 
 import static java.nio.file.Paths.get;
+import static org.solarcore.app.SolarcoreSystem.decodeUrlParameter;
 
 class SolarcoreConfig {
     private String systemname;
@@ -84,14 +85,14 @@ class SolarcoreConfig {
 
     void updateFolder(HashMap<String, String> params) {
         DefinedFolder f = folders.get(params.get("objectid"));
-        String folderName = params.get("name");
-        String folderDescription = params.get("description");
+        String folderName = decodeUrlParameter(params.get("name"));
+        String folderDescription = decodeUrlParameter(params.get("description"));
 
-        if (folderDescription == null) folderDescription = "";
+        if (folderDescription.equals("[UNSET]")) folderDescription = "";
 
         log.info("Setting folder name: " + folderName);
         f.setFolderName(folderName);
-        log.info("Setting folder description: " + folderDescription);
+        log.info("Setting folder descriptionssss: " + folderDescription);
         f.setFolderDescription(folderDescription);
 
         folders.put(params.get("objectid"), f);
