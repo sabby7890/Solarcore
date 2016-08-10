@@ -10,6 +10,7 @@ Solarcore is designed to be easy to use. This means, no config file editing is n
 - Solarcore probe - connect to Python-based daemon running on target system to monitor health (processes, CPU, RAM, disk)
 - SNMP probe - performs SNMP query on target
 - MySQL probe - performs MySQL query on target
+- HTTP Probe - measure HTTP response time
 - DNS probe - monitors DNS response time
 - Custom probe - connects to specified port on the host and waits for reply
 
