@@ -16,3 +16,5 @@ Solarcore is designed to be easy to use. This means, no config file editing is n
 Solarcore includes a fancy web user interface, designed to fit on big screens in IT offices. It also includes an installer, which will allow easy setup.
 
 In the future releases, Solarcore will include a web api and Android application to receive alerts. Currently supported notification systems are email and custom command.
+
+
