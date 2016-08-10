@@ -64,11 +64,15 @@ $(function() {
 			is_fullscreen = false;
 		}
 	});
-	
+
+
 	$("#panel a").click(function(e) {
-		return;
 		var linkDestination = $(this).attr("href");
 		e.preventDefault();
+
+	    $("#progressbar").fadeIn().css("width", "1920px");
+
+        $("#contentheader").fadeOut(300);
 		$("#content .content").fadeOut(300, function() {
 			window.location = linkDestination;
 		});
@@ -219,7 +223,12 @@ function findSubFolders(xml) {
 				break;
 			case "contact":
 				data += "<li><a " + 
-				"data-foldername=\"" + $(this).children("name").text() + 
+				"data-alias=\"" + $(this).children("alias").text() +
+				"\" data-firstname=\"" + $(this).children("firstname").text() +
+				"\" data-lastname=\"" + $(this).children("lastname").text() +
+				"\" data-email=\"" + $(this).children("email").text() +
+				"\" data-phone=\"" + $(this).children("phone").text() +
+				"\" data-location=\"" + $(this).children("location").text() +
 				"\" data-id=\"" + id + 
 				"\" data-type=\"" + ttype + 
 				
@@ -232,7 +241,12 @@ function findSubFolders(xml) {
 				"data-foldername=\"" + $(this).children("name").text() + 
 				"\" data-id=\"" + id + 
 				"\" data-type=\"" + ttype + 
-				
+				"\" data-name=\"" + $(this).children("name").text() +
+				"\" data-description=\"" + $(this).children("description").text() +
+				"\" data-address=\"" + $(this).children("address").text() +
+				"\" data-location=\"" + $(this).children("location").text() +
+
+
 				"\" class=\"folder-object object-target" + 
 				"\" href=\"#\">" + $(this).children("name").text() + "<span class='object-description'>Target</span>" + 
 				"</a>" + findSubFolders($(this)) + "</li>";
@@ -240,7 +254,7 @@ function findSubFolders(xml) {
 			case "folder":
 				data += "<li><a " + 
 				"data-name=\"" + $(this).children("name").text() + 
-				"data-description=\"" + $(this).children("description").text() + 
+				"\" data-description=\"" + $(this).children("description").text() +
 				"\" data-id=\"" + id + 
 				"\" data-type=\"" + ttype + 
 				
@@ -286,6 +300,8 @@ function buildFolderList() {
 		$(".folder-object").click(function() {
 			var type = $(this).attr("data-type");
 			var id = $(this).attr("data-id");
+
+			$("#placeholder").hide();
 			
 			$(".folder-object").each(function() {
 				$(this).removeClass("active");
@@ -300,16 +316,36 @@ function buildFolderList() {
 			
 			if (type == "folder") {
 				$("#folder_edit .name").val($(this).attr("data-name"));
+				$("#folder_edit .description").val($(this).attr("data-description"));
 				$("#folder_edit").show();
 			}
+
+			if (type == "contact") {
+                $("#contact_edit .alias").val($(this).attr("data-alias"));
+                $("#contact_edit .firstname").val($(this).attr("data-firstname"));
+                $("#contact_edit .lastname").val($(this).attr("data-lastname"));
+
+                $("#contact_edit .email").val($(this).attr("data-email"));
+                $("#contact_edit .phone").val($(this).attr("data-phone"));
+                $("#contact_edit .location").val($(this).attr("data-location"));
+
+                $("#contact_edit ").show();
+      		}
 			
 			if (type == "target") {
 				$("#target_edit .name").val($(this).attr("data-name"));
+				$("#target_edit .description").val($(this).attr("data-description"));
+				$("#target_edit .address").val($(this).attr("data-address"));
+				$("#target_edit .location").val($(this).attr("data-location"));
 				$("#target_edit").show();
 			}
 			
 			if (type == "user") {
-				$("#user_edit .name").val($(this).attr("data-name"));
+			    $("#user_edit .firstname").val($(this).attr("data-firstname"));
+			    $("#user_edit .lastname").val($(this).attr("data-lastname"));
+			    $("#user_edit .phone").val($(this).attr("data-phone"));
+			    $("#user_edit .location").val($(this).attr("data-location"));
+				$("#user_edit .name").val($(this).attr("data-username"));
 				$("#user_edit").show();
 			}
 			

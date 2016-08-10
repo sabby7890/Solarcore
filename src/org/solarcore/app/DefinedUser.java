@@ -87,7 +87,7 @@ class DefinedUser extends Defined {
         SolarcoreSystem.addXMLEntry(doc, userElement, "firstname", firstname);
         SolarcoreSystem.addXMLEntry(doc, userElement, "lastname", lastname);
         SolarcoreSystem.addXMLEntry(doc, userElement, "email", email);
-        SolarcoreSystem.addXMLEntry(doc, userElement, "folder", folderID);
+        SolarcoreSystem.addXMLEntry(doc, userElement, "parentFolder", folderID);
         SolarcoreSystem.addXMLEntry(doc, userElement, "phone", phone);
         SolarcoreSystem.addXMLEntry(doc, userElement, "location", location);
 

@@ -228,19 +228,13 @@ class SolarcoreHTTPHandler implements HttpHandler {
                         responseHeaders.set("Content-Type", "text/xml");
                         break;
 
-                    case "/folders":
+                    case "/objects":
                         v.put("title", "Folders | Solarcore");
-                        data = parse("folders.html", v);
-                        break;
-                    case "/reports":
-                        v.put("title", "Reports | Solarcore");
-                        data = parse("reports.html", v);
+                        data = parse("objects.html", v);
                         break;
 
-                    case "/history":
-                        v.put("title", "History | Solarcore");
-                        data = parse("history.html", v);
-                        break;
+
+
 
                     case "/configuration":
                         v.put("title", "Configuration | Solarcore");

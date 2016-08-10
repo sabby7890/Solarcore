@@ -105,7 +105,7 @@ class DefinedTarget extends Defined {
         SolarcoreSystem.addXMLEntry(doc, targetElement, "description", description);
         SolarcoreSystem.addXMLEntry(doc, targetElement, "address", address);
         SolarcoreSystem.addXMLEntry(doc, targetElement, "location", location);
-        SolarcoreSystem.addXMLEntry(doc, targetElement, "folder", folderID);
+        SolarcoreSystem.addXMLEntry(doc, targetElement, "parentFolder", folderID);
 
         SolarcoreSystem.addCustomEntries(doc, targetElement, customVariables);
 

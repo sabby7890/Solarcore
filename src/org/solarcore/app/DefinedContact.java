@@ -74,7 +74,7 @@ class DefinedContact extends Defined {
         SolarcoreSystem.addXMLEntry(doc, contactElement, "email", email);
         SolarcoreSystem.addXMLEntry(doc, contactElement, "phone", phone);
         SolarcoreSystem.addXMLEntry(doc, contactElement, "location", location);
-        SolarcoreSystem.addXMLEntry(doc, contactElement, "folder", folderID);
+        SolarcoreSystem.addXMLEntry(doc, contactElement, "parentFolder", folderID);
 
         return contactElement;
     }

@@ -1,0 +1,182 @@
+{include header.html}
+<div id="panel">
+	<img id="logo" src="/static/img/logo_white.png" />
+	<a class="noselect" href="/">Dashboard</a>
+	<a class="active noselect" href="/objects">Object view</a>
+	<a class="noselect" href="/configuration">Configuration</a>
+	<a class="bottom noselect" href="/logout">Logout</a>
+</div>
+<div id="content">
+<div id="contentheader">
+	<div class="controls">
+		<div class="control-button">
+			<button class="solarcore_button" id="add_folder_button">Add folder</button>
+		</div>
+	</div>
+	
+	<div class="header">
+		<h1>Folders</h1>
+		<p>Folder view</p>
+	</div>
+	
+	<div class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<div id="folderlist"></div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<div id="folderdescription">
+						<div id="placeholder">
+							<h1>No object selected</h1>
+							<p>Select object from left side menu to edit it.</p>
+						</div>
+						<div class="object-editor" id="folder_edit">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<p>Name:</p>
+								<div class="inputholder"><input type="text" class="name" placeholder="Object name..." /></div>
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<p>Description:</p>
+								<div class="inputholder"><textarea class="description" placeholder="Object description..."></textarea></div>
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<button type="button" class="solarcore_button small">Save</button>
+								<button type="button" class="solarcore_button small">Disable</button>
+							</div>
+						</div>
+						
+						<div class="object-editor" id="target_edit">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<p>Name:</p>
+								<div class="inputholder"><input type="text" class="name" placeholder="Object name..." /></div>
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<p>Description:</p>
+								<div class="inputholder"><textarea class="description" placeholder="Object description..."></textarea></div>
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<p>Address:</p>
+								<div class="inputholder"><input type="text" class="address" placeholder="Address..." /></div>
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<p>Location:</p>
+								<div class="inputholder"><input type="text" class="location" placeholder="Location..." /></div>
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<button type="button" class="solarcore_button small">Save</button>
+								<button type="button" class="solarcore_button small">Disable</button>
+							</div>
+						</div>
+						
+						<div class="object-editor" id="user_edit">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<p>Username:</p>
+								<div class="inputholder"><input type="text" class="name" placeholder="Username..." /></div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+								<p>First name:</p>
+								<div class="inputholder"><input type="text" class="firstname" placeholder="First name..." /></div>
+							</div>
+							
+							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+								<p>Last name:</p>
+								<div class="inputholder"><input type="text" class="lastname" placeholder="Last name..." /></div>
+							</div>
+
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<p>Phone:</p>
+								<div class="inputholder"><input type="text" class="phone" placeholder="Telephone number..." /></div>
+							</div>
+
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<p>Location:</p>
+								<div class="inputholder"><input type="text" class="location" placeholder="Location..." /></div>
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<button type="button" class="solarcore_button small">Save</button>
+							</div>
+						</div>
+
+						<div class="object-editor" id="contact_edit">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<p>Alias:</p>
+								<div class="inputholder"><input type="text" class="alias" placeholder="Alias..." /></div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+								<p>First name:</p>
+								<div class="inputholder"><input type="text" class="firstname" placeholder="First name..." /></div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+								<p>Last name:</p>
+								<div class="inputholder"><input type="text" class="lastname" placeholder="Last name..." /></div>
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<p>Email:</p>
+								<div class="inputholder"><input type="text" class="email" placeholder="Email..." /></div>
+							</div>
+
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<p>Phone:</p>
+								<div class="inputholder"><input type="text" class="phone" placeholder="Phone..." /></div>
+							</div>
+
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<p>Location:</p>
+								<div class="inputholder"><input type="text" class="location" placeholder="Location..." /></div>
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<button type="button" class="solarcore_button small">Save</button>
+							</div>
+
+
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div id="folder_modal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Add folder</h4>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+							<p>Name:</p>
+							<div class="inputholder"><input id="add_folder_name" class="small" type="text" name="targetname" value=""/></div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+							<p>Description (optional):</p>
+							<div class="inputholder"><input id="add_folder_description" class="small" type="text" name="targetname" value=""/></div>
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+							<p>Create in:</p>
+							<select id="add_folder_folder"></select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="solarcore_button small" data-dismiss="modal">Save</button>
+				<button type="button" class="solarcore_button small" data-dismiss="modal">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="contextmenu" id="object_context_menu">
+	<a href="#">Remove object</a>
+</div>
+{include footer.html}

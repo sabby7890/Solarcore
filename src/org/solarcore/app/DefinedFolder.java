@@ -55,7 +55,7 @@ class DefinedFolder extends Defined {
 
         SolarcoreSystem.addXMLEntry(doc, folderElement, "name", folderName);
         SolarcoreSystem.addXMLEntry(doc, folderElement, "description", folderDescription);
-        SolarcoreSystem.addXMLEntry(doc, folderElement, "parent", folderID);
+        SolarcoreSystem.addXMLEntry(doc, folderElement, "parentFolder", folderID);
 
         return folderElement;
     }
