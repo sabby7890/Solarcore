@@ -135,7 +135,17 @@ $(function() {
 		});
 	});
 	
-	
+	$("#folder_save_button").click(function() {
+		$.post("/api/objectsave", {
+		    objecttype: "folder",
+		    objectid: $("#folder_edit").attr("data-id"),
+			name: $("#folder_edit .name").val().replace("+", "[SOLARCORE_PLUS]"),
+			description: $("#folder_edit .description").val().replace("+", "[SOLARCORE_PLUS]"),
+        });
+
+	    $("#folderlist").html("");
+   		buildFolderList();
+	});
 	
 	$("#save_configuration").click(function() {
 		var btn = $(this);
@@ -253,7 +263,7 @@ function findSubFolders(xml) {
 				break;
 			case "folder":
 				data += "<li><a " + 
-				"data-name=\"" + $(this).children("name").text() + 
+				"data-name=\"" + $(this).children("name").text() +
 				"\" data-description=\"" + $(this).children("description").text() +
 				"\" data-id=\"" + id + 
 				"\" data-type=\"" + ttype + 
@@ -316,6 +326,7 @@ function buildFolderList() {
 			
 			if (type == "folder") {
 				$("#folder_edit .name").val($(this).attr("data-name"));
+				$("#folder_edit").attr("data-id", $(this).attr("data-id"));
 				$("#folder_edit .description").val($(this).attr("data-description"));
 				$("#folder_edit").show();
 			}

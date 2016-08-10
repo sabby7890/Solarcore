@@ -68,6 +68,10 @@ class DefinedFolder extends Defined {
         return folderDescription;
     }
 
+    void setFolderName(String pFolderName) { folderName = pFolderName; }
+
+    void setFolderDescription(String pFolderDescription) { folderDescription = pFolderDescription; }
+
     public boolean validate() {
         return folderName != null && folderDescription != null;
     }

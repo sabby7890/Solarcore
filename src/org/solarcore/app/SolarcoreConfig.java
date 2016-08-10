@@ -66,6 +66,21 @@ class SolarcoreConfig {
         log.info("Administrator: " + adminFirstName + " " + adminLastName + " <" + adminEmail + ">");
     }
 
+    public void updateFolder(HashMap<String, String> params) {
+        DefinedFolder f = folders.get(params.get("objectid"));
+        String folderName = params.get("name");
+        String folderDescription = params.get("description");
+
+        if (folderDescription == null) folderDescription = "";
+
+        log.info("Setting folder name: " + folderName);
+        f.setFolderName(folderName);
+        log.info("Setting folder description: " + folderDescription);
+        f.setFolderDescription(folderDescription);
+
+        folders.put(params.get("objectid"), f);
+    }
+
     void reloadConfiguration() throws ParserConfigurationException, IOException, SAXException {
         File fXmlFile = new File("solarcore.xml");
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();

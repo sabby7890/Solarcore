@@ -28,8 +28,8 @@
         <location>500</location>
     </user>
     <folder id="1">
-        <name>Root</name>
-        <description/>
+        <name>Main+folder</name>
+        <description>My+description+%3A)</description>
         <parentFolder>0</parentFolder>
     </folder>
     <folder id="2">
@@ -80,7 +80,7 @@
             <phone>+48 600 488 780</phone>
         </admin>
         <email>
-            <server>luxperpetua.net</server>
+            <server>luxperpetua.net2</server>
             <port>252</port>
             <username>solarcore@luxperpetua.net2</username>
             <password>solarcore1232</password>

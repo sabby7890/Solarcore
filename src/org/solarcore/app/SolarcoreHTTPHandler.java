@@ -324,6 +324,10 @@ class SolarcoreHTTPHandler implements HttpHandler {
                     case "/api/configsave":
                         data = saveconfiguration(postParams);
                         break;
+
+                    case "/api/objectsave":
+                        data = objectsave(postParams);
+                        break;
                 }
             }
         }
@@ -349,6 +353,26 @@ class SolarcoreHTTPHandler implements HttpHandler {
         }
 
         return out;
+    }
+
+    private byte[] objectsave(HashMap<String, String> params) {
+        if (params.get("objecttype") == null) {
+            return "FAIL".getBytes();
+        }
+
+        switch (params.get("objecttype")) {
+            case "folder":
+                config.updateFolder(params);
+        }
+
+
+        try {
+            config.saveConfiguration();
+            config.reloadConfiguration();
+        } catch (ParserConfigurationException|IOException|SAXException e) {
+            e.printStackTrace();
+        }
+        return "OK".getBytes();
     }
 
     private byte[] saveconfiguration(HashMap<String, String> params) {
