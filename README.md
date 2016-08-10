@@ -1,5 +1,5 @@
-Solarcore NOT YET COMPLETED
-===========================
+Solarcore NOT STABLE
+====================
 
 Solarcore is a monitoring system provided to be a replacement for Nagios/Icinga on smaller systems. As a Java application, Solarcore will run on any system supporting Java. 
 
