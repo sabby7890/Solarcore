@@ -18,3 +18,4 @@ Solarcore includes a fancy web user interface, designed to fit on big screens in
 In the future releases, Solarcore will include a web api and Android application to receive alerts. Currently supported notification systems are email and custom command.
 
 
+Devel branch
