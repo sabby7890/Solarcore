@@ -92,12 +92,17 @@ class DefinedContact extends Defined {
     String getFirstname() {
         return firstname;
     }
-
     String getLastname() {
         return lastname;
     }
-
     String getEmail() {
         return email;
     }
+
+    void setAlias(String pAlias) { alias = pAlias; }
+    void setFirstname(String pFirstname) { firstname = pFirstname; }
+    void setLastname(String pLastname) { lastname = pLastname; }
+    void setEmail(String pEmail) { email = pEmail; }
+    void setPhone(String pPhone) { phone = pPhone; }
+    void setLocation(String pLocation) { location= pLocation; }
 }

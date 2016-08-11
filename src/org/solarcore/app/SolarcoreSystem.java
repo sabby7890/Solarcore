@@ -281,6 +281,7 @@ class SolarcoreSystem {
     }
 
     public static String decodeUrlParameter(String url) {
+        if (url == null) return "";
         String out;
         try {
             out = new URI(url).getPath().replace("+", " ").replace("[SOLARCORE_PLUS]", "+");

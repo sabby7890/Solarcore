@@ -11,6 +11,74 @@ $(function() {
 			});
 		};
 	}
+
+	function verifyPassInput() {
+        var text = $("#adminpassinput").val();
+        var passok = true;
+        var linelength = 20;
+        $("#passline").html("Password secure");
+
+        if(!/[~`!@#$%\^&*()+=\-\[\]\\';,/{}|\\":<>\?]/g.test(text)) {
+            $("#passline").html("Password doesn't contain any special characters");
+            passok = false;
+        } else {
+            linelength += 30;
+        }
+
+        if (text.toLowerCase() == text) {
+            $("#passline").html("Password doesn't contain any uppercase characters");
+            passok = false;
+        } else {
+            linelength += 30;
+        }
+
+        if (text.length < 5) {
+            $("#passline").html("Password too short");
+            passok = false;
+        } else {
+            linelength += 30;
+        }
+
+        $("#passline").css("width", linelength);
+
+        if (linelength < 40) {
+            $("#passline").css("border-bottom", "3px solid #ff3344");
+        } else if (linelength >= 40 && linelength < 90) {
+            $("#passline").css("border-bottom", "3px solid #f3b100");
+        } else {
+            $("#passline").css("border-bottom", "3px solid #33ff00");
+        }
+
+        if (passok && $("#adminpassinput").val() == $("#adminpassinputrepeat").val()) {
+            $("#changepass_save").removeAttr("disabled");
+        } else {
+            $("#changepass_save").attr("disabled", "disabled");
+        }
+	}
+
+	$("#changepass_save").click(function() {
+		$.post("/api/objectsave", {
+		    objecttype: "folder",
+		    objectid: pId,
+			name: pName,
+			description: pDescription
+        }, function() {
+           	buildFolderList();
+        });
+	});
+
+
+    $("#adminpassinputrepeat").on('input', function() {
+        verifyPassInput();
+
+        if ($(this).val() != $("#adminpassinput").val()) {
+            $("#passline").html("Passwords doesn't match!");
+        }
+    });
+
+    $("#adminpassinput").on('input', function() {
+        verifyPassInput();
+    });
 	
 	$(document).click(function() {
 		$(".contextmenu").each(function() {
@@ -134,7 +202,32 @@ $(function() {
 			$("#changepass_modal").modal({backdrop: 'static', keyboard: true });
 		});
 	});
-	
+
+	$("#contact_save_button").click(function() {
+	    var pId = $("#contact_edit").attr("data-id");
+        var pAlias = $("#contact_edit .alias").val().replace("+", "[SOLARCORE_PLUS]");
+	    var pFirstname= $("#contact_edit .firstname").val().replace("+", "[SOLARCORE_PLUS]");
+	    var pLastname = $("#contact_edit .lastname").val().replace("+", "[SOLARCORE_PLUS]");
+	    var pEmail = $("#contact_edit .email").val().replace("+", "[SOLARCORE_PLUS]");
+	    var pPhone = $("#contact_edit .phone").val().replace("+", "[SOLARCORE_PLUS]");
+        var pLocation = $("#contact_edit .location").val().replace("+", "[SOLARCORE_PLUS]");
+
+		$.post("/api/objectsave", {
+		    objecttype: "contact",
+		    objectid: pId,
+			alias: pAlias,
+			firstname: pFirstname,
+			lastname: pLastname,
+			email: pEmail,
+			phone: pPhone,
+			location: pLocation
+        }, function() {
+           	buildFolderList();
+        });
+
+	});
+
+
 	$("#folder_save_button").click(function() {
 	    var pId = $("#folder_edit").attr("data-id");
         var pName = $("#folder_edit .name").val().replace("+", "[SOLARCORE_PLUS]");
@@ -148,7 +241,6 @@ $(function() {
 			name: pName,
 			description: pDescription
         }, function() {
-            $("#folderlist").html("");
            	buildFolderList();
         });
 	});
@@ -332,8 +424,8 @@ function buildFolderList() {
 			
 			if (type == "folder") {
 				$("#folder_edit .name").val($(this).attr("data-name"));
-				$("#folder_edit").attr("data-id", $(this).attr("data-id"));
 				$("#folder_edit .description").val($(this).attr("data-description"));
+				$("#folder_edit").attr("data-id", $(this).attr("data-id"));
 				$("#folder_edit").show();
 			}
 
@@ -341,11 +433,11 @@ function buildFolderList() {
                 $("#contact_edit .alias").val($(this).attr("data-alias"));
                 $("#contact_edit .firstname").val($(this).attr("data-firstname"));
                 $("#contact_edit .lastname").val($(this).attr("data-lastname"));
-
                 $("#contact_edit .email").val($(this).attr("data-email"));
                 $("#contact_edit .phone").val($(this).attr("data-phone"));
                 $("#contact_edit .location").val($(this).attr("data-location"));
 
+                $("#contact_edit").attr("data-id", $(this).attr("data-id"));
                 $("#contact_edit ").show();
       		}
 			

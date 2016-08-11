@@ -344,6 +344,10 @@ class SolarcoreHTTPHandler implements HttpHandler {
                     case "/api/objectsave":
                         data = objectsave(postParams);
                         break;
+
+                    case "/api/adminpass":
+                        data = adminpass(postParams);
+                        break;
                 }
             }
         }
@@ -359,6 +363,18 @@ class SolarcoreHTTPHandler implements HttpHandler {
         }
     }
 
+    private byte[] adminpass(HashMap<String, String> params) {
+        if (params.get("pass") == null) {
+            return "FAIL".getBytes();
+        }
+
+        String newpass = params.get("pass");
+
+
+
+        return "OK".getBytes();
+    }
+
     private byte[] objectsave(HashMap<String, String> params) {
         if (params.get("objecttype") == null) {
             return "FAIL".getBytes();
@@ -367,6 +383,10 @@ class SolarcoreHTTPHandler implements HttpHandler {
         switch (params.get("objecttype")) {
             case "folder":
                 config.updateFolder(params);
+                break;
+            case "contact":
+                config.updateContact(params);
+                break;
         }
 
 

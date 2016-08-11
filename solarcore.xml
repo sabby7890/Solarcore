@@ -27,9 +27,9 @@
         <phone>500</phone>
         <location>500</location>
     </user>
-    <folder id="1" enabled="false">
-        <name>Main folder</name>
-        <description/>
+    <folder id="1">
+        <name>Main</name>
+        <description>sadf</description>
         <parentFolder>0</parentFolder>
     </folder>
     <folder id="2">
@@ -58,12 +58,12 @@
         <parentFolder>dupa1</parentFolder>
     </folder>
     <contact id="tsalacinski">
-        <alias>salata</alias>
-        <firstname>Tomasz</firstname>
-        <lastname>Sałaciński</lastname>
-        <email>tommy@luxperpetua.net</email>
-        <phone>600488780</phone>
-        <location>adresik</location>
+        <alias>salata2</alias>
+        <firstname>Tomasz2</firstname>
+        <lastname/>
+        <email>tommy@luxperpetua.net2</email>
+        <phone>600488780s2</phone>
+        <location>adresik2</location>
         <parentFolder>2</parentFolder>
     </contact>
     <config>

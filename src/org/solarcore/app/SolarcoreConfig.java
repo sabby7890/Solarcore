@@ -83,6 +83,23 @@ class SolarcoreConfig {
         log.info("Administrator: " + adminFirstName + " " + adminLastName + " <" + adminEmail + ">");
     }
 
+    void updateContact(HashMap<String, String> params) {
+        DefinedContact c = contacts.get(params.get("objectid"));
+        String alias = decodeUrlParameter(params.get("alias"));
+        String firstname = decodeUrlParameter(params.get("firstname"));
+        String lastname = decodeUrlParameter(params.get("lastname"));
+        String email = decodeUrlParameter(params.get("email"));
+        String phone = decodeUrlParameter(params.get("phone"));
+        String location = decodeUrlParameter(params.get("location"));
+
+        c.setAlias(alias);
+        c.setFirstname(firstname);
+        c.setLastname(lastname);
+        c.setEmail(email);
+        c.setPhone(phone);
+        c.setLocation(location);
+    }
+
     void updateFolder(HashMap<String, String> params) {
         DefinedFolder f = folders.get(params.get("objectid"));
         String folderName = decodeUrlParameter(params.get("name"));
