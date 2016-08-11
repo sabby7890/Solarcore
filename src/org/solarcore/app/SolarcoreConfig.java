@@ -109,6 +109,10 @@ class SolarcoreConfig {
         f.setFolderDescription(folderDescription);
     }
 
+    void updateTarget(HashMap<String, String> params) {
+        DefinedTarget t = targets.get(params.get("objectid"));
+    }
+
     void updateUser(HashMap<String, String> params) {
         DefinedUser u = users.get(params.get("objectid"));
 

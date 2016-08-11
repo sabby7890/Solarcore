@@ -390,6 +390,9 @@ class SolarcoreHTTPHandler implements HttpHandler {
             case "user":
                 config.updateUser(params);
                 break;
+            case "target":
+                config.updateTarget(params);
+                break;
             default:
                 log.info("Unknown object type: " + params.get("objecttype"));
                 break;

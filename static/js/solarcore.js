@@ -251,6 +251,28 @@ $(function() {
 
 	});
 
+	$("#target_save_button").click(function() {
+	    var pId = $("#user_edit").attr("data-id");
+        var pName = $("#user_edit .name").val().replace("+", "[SOLARCORE_PLUS]");
+	    var pDescription = $("#user_edit .description").val().replace("+", "[SOLARCORE_PLUS]");
+	    var pAddress = $("#user_edit .address").val().replace("+", "[SOLARCORE_PLUS]");
+	    var pLocation = $("#user_edit .location").val().replace("+", "[SOLARCORE_PLUS]");
+
+        if (pDescription.length == 0) pDescription = "[UNSET]";
+
+		$.post("/api/objectsave", {
+		    objecttype: "target",
+		    objectid: pId,
+			name: pName,
+			description: pDescription,
+			address: pAddress,
+			location: pLocation
+        }, function() {
+           	buildFolderList();
+        });
+
+	});
+
 
 	$("#folder_save_button").click(function() {
 	    var pId = $("#folder_edit").attr("data-id");
