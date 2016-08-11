@@ -227,6 +227,30 @@ $(function() {
 
 	});
 
+	$("#user_save_button").click(function() {
+	    var pId = $("#user_edit").attr("data-id");
+        var pUsername = $("#user_edit .username").val().replace("+", "[SOLARCORE_PLUS]");
+	    var pFirstname= $("#user_edit .firstname").val().replace("+", "[SOLARCORE_PLUS]");
+	    var pLastname = $("#user_edit .lastname").val().replace("+", "[SOLARCORE_PLUS]");
+	    var pEmail = $("#user_edit .email").val().replace("+", "[SOLARCORE_PLUS]");
+	    var pPhone = $("#user_edit .phone").val().replace("+", "[SOLARCORE_PLUS]");
+        var pLocation = $("#user_edit .location").val().replace("+", "[SOLARCORE_PLUS]");
+
+		$.post("/api/objectsave", {
+		    objecttype: "user",
+		    objectid: pId,
+			username: pUsername,
+			firstname: pFirstname,
+			lastname: pLastname,
+			email: pEmail,
+			phone: pPhone,
+			location: pLocation
+        }, function() {
+           	buildFolderList();
+        });
+
+	});
+
 
 	$("#folder_save_button").click(function() {
 	    var pId = $("#folder_edit").attr("data-id");
@@ -446,15 +470,19 @@ function buildFolderList() {
 				$("#target_edit .description").val($(this).attr("data-description"));
 				$("#target_edit .address").val($(this).attr("data-address"));
 				$("#target_edit .location").val($(this).attr("data-location"));
+				$("#target_edit").attr("data-id", $(this).attr("data-id"));
 				$("#target_edit").show();
 			}
 			
 			if (type == "user") {
-			    $("#user_edit .firstname").val($(this).attr("data-firstname"));
+			    $("#user_edit .username").val($(this).attr("data-username"));
+				$("#user_edit .firstname").val($(this).attr("data-firstname"));
 			    $("#user_edit .lastname").val($(this).attr("data-lastname"));
+			    $("#user_edit .email").val($(this).attr("data-email"));
 			    $("#user_edit .phone").val($(this).attr("data-phone"));
 			    $("#user_edit .location").val($(this).attr("data-location"));
-				$("#user_edit .name").val($(this).attr("data-username"));
+
+				$("#user_edit").attr("data-id", $(this).attr("data-id"));
 				$("#user_edit").show();
 			}
 			

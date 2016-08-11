@@ -115,4 +115,12 @@ class DefinedUser extends Defined {
     String getDescription() {
         return description;
     }
+
+    void setUsername(String pUsername) { username = pUsername; }
+    void setFirstname(String pFirstname) { firstname = pFirstname; }
+    void setLastname(String pLastname) { lastname = pLastname; }
+    void setEmail(String pEmail) { email = pEmail; }
+    void setPhone(String pPhone) { phone = pPhone; }
+    void setLocation(String pLocation) { location= pLocation; }
+
 }

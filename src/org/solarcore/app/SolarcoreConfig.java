@@ -109,6 +109,25 @@ class SolarcoreConfig {
         f.setFolderDescription(folderDescription);
     }
 
+    void updateUser(HashMap<String, String> params) {
+        DefinedUser u = users.get(params.get("objectid"));
+
+        String username = decodeUrlParameter(params.get("username"));
+        String firstname = decodeUrlParameter(params.get("firstname"));
+        String lastname = decodeUrlParameter(params.get("lastname"));
+        String email = decodeUrlParameter(params.get("email"));
+        String phone = decodeUrlParameter(params.get("phone"));
+        String location = decodeUrlParameter(params.get("location"));
+
+        u.setUsername(username);
+        u.setFirstname(firstname);
+        u.setLastname(lastname);
+        u.setEmail(email);
+        u.setPhone(phone);
+        u.setLocation(location);
+
+    }
+
     void reloadConfiguration() throws ParserConfigurationException, IOException, SAXException {
         File fXmlFile = new File("solarcore.xml");
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();

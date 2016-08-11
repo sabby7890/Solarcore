@@ -17,15 +17,15 @@
         </probe>
     </target>
     <user id="1">
-        <username>tommy</username>
+        <username>tommyd2</username>
         <password>c70b5dd9ebfb6f51d09d4132b7170c9d20750a7852f00680f65658f0310e810056e6763c34c9a00b0e940076f54495c169fc2302cceb312039271c43469507dc</password>
         <userlevel>0</userlevel>
-        <firstname>Tomasz</firstname>
-        <lastname>Sałaciński</lastname>
-        <email>tommy@luxperpetua.net</email>
+        <firstname>Tomasz2</firstname>
+        <lastname>Sałaciński2</lastname>
+        <email>tommy@luxperpetua.net2</email>
         <parentFolder>2</parentFolder>
-        <phone>500</phone>
-        <location>500</location>
+        <phone>5002</phone>
+        <location>5002</location>
     </user>
     <folder id="1">
         <name>Main</name>
