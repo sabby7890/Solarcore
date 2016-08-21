@@ -11,6 +11,7 @@ $(function() {
 			});
 		};
 	}
+	
 
 	function verifyPassInput() {
         var text = $("#adminpassinput").val();
@@ -515,7 +516,7 @@ function buildFolderList() {
 			}).click(function() {
 				$(this).addClass("active");
 			});
-		});
+		}).draggable();
 
 		
 	});

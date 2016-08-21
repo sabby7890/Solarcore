@@ -129,7 +129,6 @@ class SolarcoreConfig {
         u.setEmail(email);
         u.setPhone(phone);
         u.setLocation(location);
-
     }
 
     void reloadConfiguration() throws ParserConfigurationException, IOException, SAXException {
