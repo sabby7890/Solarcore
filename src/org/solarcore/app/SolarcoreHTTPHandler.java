@@ -191,7 +191,7 @@ class SolarcoreHTTPHandler implements HttpHandler {
                     }
                 }
 
-                if (!authorized && !g.getPath().equals("/login") && !g.getPath().equals("/api/keepalive") && !g.getPath().equals("/api/folderlist")) {
+                if (!authorized && !g.getPath().equals("/login") && !g.getPath().equals("/api/keepalive") && !g.getPath().equals("/api/folderlist") && !g.getPath().equals("/installer")) {
                     responseHeaders.set("Location", "/login");
                     try {
                         t.sendResponseHeaders(302, -1);
@@ -213,6 +213,11 @@ class SolarcoreHTTPHandler implements HttpHandler {
 
                     case "/logout":
                         logout(t, responseHeaders);
+                        break;
+
+                    case "/installer":
+                        v.put("title", "Installation | Solarcore");
+                        data = parse("installer.html", v);
                         break;
 
                     case "/api/graphdata":
@@ -248,9 +253,6 @@ class SolarcoreHTTPHandler implements HttpHandler {
                         v.put("title", "Folders | Solarcore");
                         data = parse("objects.html", v);
                         break;
-
-
-
 
                     case "/configuration":
                         v.put("title", "Configuration | Solarcore");

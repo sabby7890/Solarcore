@@ -31,6 +31,7 @@ import java.io.StringWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
@@ -91,7 +92,14 @@ class SolarcoreSystem {
     }
 
     byte[] readFile(String filename) throws IOException {
-        return readAllBytes(get(filename));
+        byte[] out = null;
+        try {
+             out = readAllBytes(get(filename));
+        } catch (NoSuchFileException e) {
+            return null;
+        }
+
+        return out;
     }
 
     void writeFile(String filename, byte[] data) throws  IOException {

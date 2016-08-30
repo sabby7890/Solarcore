@@ -179,6 +179,39 @@ button > .loading {
 	}
 }
 
+#installer {
+	&:extend(#login);
+	max-width: 800px;
+
+	.center {
+		text-align: center;
+	}
+	
+	img {
+		max-width: 100%;
+		margin: 0px auto 30px auto !important;
+	}
+	
+	.noframe {
+		border: 0px !important;
+	}
+	
+	h1 {
+		text-align: center;
+		color: @solarcore_main;
+		padding: 0px;
+		height: 100px;
+		margin: 0px 0px 20px 0px;
+	}
+	
+	.error {
+		text-align: center;
+		font-weight: bold;
+		font-size: 0.9em;
+		color: #dd2222;
+	}
+}
+
 .copyright {
 	position: absolute;
 	bottom: 0;

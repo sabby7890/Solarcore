@@ -12,7 +12,6 @@ $(function() {
 		};
 	}
 	
-
 	function verifyPassInput() {
         var text = $("#adminpassinput").val();
         var passok = true;
@@ -93,8 +92,14 @@ $(function() {
 	
 	if ($("#login").length) {
 		setTimeout(function() {
-				$("#sc_login_field").focus();
-				$("#login").removeClass("transparent");
+			$("#sc_login_field").focus();
+			$("#login").removeClass("transparent");
+		}, 200);
+	}
+	
+	if ($("#installer").length) {
+		setTimeout(function() {
+			$("#installer").removeClass("transparent");
 		}, 200);
 	}
 	
@@ -323,6 +328,8 @@ $(function() {
 });
 
 function keepalive() {
+	if (window.location.href.indexOf("/installer") !=-1) return;
+	
 	$.get("/api/keepalive", function(xml) {
 		var authorizedStatus = xml.getElementsByTagName("login")[0].getAttribute("authorized");
 		
@@ -336,7 +343,7 @@ function keepalive() {
 				window.location.href = "/login";
 			});
 		}
-		
+
 		is_error = false;
 	}).fail(function(e) {
 		if (is_error) return;
